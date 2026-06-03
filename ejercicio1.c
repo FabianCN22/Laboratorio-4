@@ -4,7 +4,7 @@
 //funcion que recorre la matriz para encontyr secuencias de 1
 void findLargestLine(int **matrix, int size, int *result) {
     int total = size * size;      //total de elementos
-    int currentLine = 0;          //Cantidad actual de 1 consecutivos
+    int currentLine = 0;          //antidad actual de 1 consecutivos
     int largestLine = 0;          //Mayor cantidad de 1 consecutivos
 
     int *p = *(matrix + 0);
