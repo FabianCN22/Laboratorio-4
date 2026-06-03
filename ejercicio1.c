@@ -61,6 +61,7 @@ void printMatrix(int **matrix, int size) {
     }
 }
 
+//funcion del documento de lab
 void freeMatrix(int **matrix, int size) {
     for (int i = 0; i < size; i++) {
         free(*(matrix + i)); 
