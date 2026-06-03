@@ -39,3 +39,12 @@ void allocateMatrix(int ***matrix, int size) {
         *(*matrix + i) = data + i * size;
     }
 }
+
+//genera la matriz con numeros del 0 al 1 alea
+void fillMatrix(int **matrix, int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            *(*(matrix + i) + j) = rand() % 2;
+        }
+    }
+}
