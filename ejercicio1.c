@@ -21,4 +21,21 @@ void findLargestLine(int **matrix, int size, int *result) {
     *result = largestLine;
 }
 
-
+//funcion para asignar memoria a la matriz
+void allocateMatrix(int ***matrix, int size) {
+    int *data = NULL;     //puntero con valor conocido
+    *matrix = malloc((size_t)size * sizeof(int *));
+    if (*matrix == NULL) {
+        printf("Error: no se pudo reservar memoria para las filas.\n");
+        exit(1);
+    }
+    data = malloc((size_t)size * (size_t)size * sizeof(int));
+    if (data == NULL) {
+        printf("Error: no se pudo reservar memoria para los datos.\n");
+        free(*matrix);
+        exit(1);
+    }
+    for (int i = 0; i < size; i++) {
+        *(*matrix + i) = data + i * size;
+    }
+}
