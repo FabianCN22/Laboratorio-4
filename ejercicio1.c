@@ -48,3 +48,15 @@ void fillMatrix(int **matrix, int size) {
         }
     }
 }
+
+//funcion para imprimir matriz
+void printMatrix(int **matrix, int size) {
+    printf("Matriz (%dx%d):\n", size, size);
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", *(*(matrix + i) + j));
+        }
+
+        printf("\n");
+    }
+}
