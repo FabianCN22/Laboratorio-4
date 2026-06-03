@@ -67,4 +67,23 @@ void freeMatrix(int **matrix, int size) {
         free(*(matrix + i)); 
     }
     free(matrix);
-}        
+}   
+
+//main
+int main(void) {
+    int size;
+    int largestLine = 0;
+    int **matrix = NULL;
+    printf("ingrese el tamaño de la matriz nxn el tamano de la matriz: ");
+    if (scanf("%d", &size) != 1 || size <= 0) {
+        printf("Tamano invalido.\n");
+        return 1;
+    }
+    allocateMatrix(&matrix, size);
+    fillMatrix(matrix, size);
+    printMatrix(matrix, size);
+    findLargestLine(matrix, size, &largestLine);
+    printf("El tamano de la secuencia de 1 mas grande es: %d\n", largestLine);
+    freeMatrix(matrix, size);
+    return 0;
+}
