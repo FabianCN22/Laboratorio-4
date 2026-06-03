@@ -61,13 +61,14 @@ void printMatrix(int **matrix, int size) {
     }
 }
 
-//funcion del documento de lab
+//cambio de la funcion freematrix, al terminar el programa no se cerraba por un error en liberacion de memoria
 void freeMatrix(int **matrix, int size) {
-    for (int i = 0; i < size; i++) {
-        free(*(matrix + i)); 
+    (void)size;  
+    if (matrix != NULL) {
+        free(*(matrix + 0));  
+        free(matrix);  
     }
-    free(matrix);
-}   
+} 
 
 //main
 int main(void) {
