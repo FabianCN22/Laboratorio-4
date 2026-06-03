@@ -85,6 +85,8 @@ int main(void) {
     printMatrix(matrix, size);
     findLargestLine(matrix, size, &largestLine);
     printf("El tamano de la secuencia de 1 mas grande es: %d\n", largestLine);
+    printf("Antes de liberar memoria\n");
     freeMatrix(matrix, size);
+    printf("Memoria liberada correctamente\n");
     return 0;
 }
