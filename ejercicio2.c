@@ -80,3 +80,15 @@ void apply_threshold(unsigned char *pixels, int total, int threshold) {
         }
     }
 }
+unsigned char *make_negative(unsigned char *pixels, int total) {
+    unsigned char *negative = NULL;
+    negative = malloc((size_t)total * sizeof(unsigned char));
+    if (negative == NULL) {
+        printf("no se pudo reservar memoria para el negativo.\n");
+        return NULL;
+    }
+    for (int i = 0; i < total; i++) {
+        *(negative + i) = (unsigned char)(255 - *(pixels + i));
+    }
+    return negative;
+}
