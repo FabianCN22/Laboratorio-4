@@ -50,3 +50,33 @@ unsigned char *read_pgm(const char *archivo, int *width, int *height, int *max_v
         fclose(file);
         return NULL;
     }
+
+    for (int i = 0; i < total; i++) {
+        if (fscanf(file, "%d", &value) != 1) {
+            printf("Error: no se pudo leer un pixel.\n");
+            free(pixels);
+            fclose(file);
+            return NULL;
+        }
+        if (value < 0 || value > *max_val) {
+            printf("ixel fuera de rango.\n");
+            free(pixels);
+            fclose(file);
+            return NULL;
+        }
+        *(pixels + i) = (unsigned char)value;
+    }
+    fclose(file);
+    return pixels;
+}
+
+void apply_threshold(unsigned char *pixels, int total, int threshold) {
+    for (int i = 0; i < total; i++) {
+        if (*(pixels + i) >= threshold) {
+            *(pixels + i) = 255;
+        } 
+        else {
+            *(pixels + i) = 0;
+        }
+    }
+}
